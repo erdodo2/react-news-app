@@ -12,7 +12,7 @@ export default function Aside() {
         }
     }, [checked])
     const categories = [
-        {id: 1, name: "Tümü", key:"",icon:<FaBook/>},
+        {id: 1, name: "Tümü", key:"all",icon:<FaBook/>},
         {id: 2, name: "Spor" , key:"sports",icon:<FaBasketballBall/>},
         {id: 3, name: "Teknoloji", key:"technology",icon:<FaRobot/>},
         {id: 4, name: "Sağlık", key:"health",icon: <FaHeartbeat/>},
@@ -23,13 +23,13 @@ export default function Aside() {
 
     return(
         <div className="w-96  p-3 hidden md:block" >
-            <div className="bg-slate-100 dark:bg-slate-700 flex flex-col justify-between  w-full rounded-lg p-2 pt-3" style={{height:"calc(100vh - 130px)"}}>
+            <div className="bg-slate-100 dark:bg-slate-700 flex flex-col justify-between  w-full rounded-2xl p-2 pt-3" style={{height:"calc(100vh - 130px)"}}>
 
                 <ul>
                     {categories.map((category) => (
                         <li
                             key={category.id}
-                            className={ (window.location.pathname == '/'+category.key ?'dark:bg-slate-600 dark:hover:bg-slate-500 hover:bg-slate-300 bg-slate-300 ':' dark:hover:bg-slate-600 hover:bg-slate-200')+ `  rounded-lg px-3 p-1 text-xl mb-1.5 cursor-pointer`}
+                            className={ (window.location.pathname == '/'+category.key ?'dark:bg-slate-600 dark:hover:bg-slate-500 hover:bg-slate-300 bg-slate-300 ':' dark:hover:bg-slate-600 hover:bg-slate-200')+ `  rounded-2xl px-3 p-2 text-xl mb-1.5 cursor-pointer`}
                             onClick={() => {window.location.pathname = '/'+category.key}}
                         >
                             <div className="flex items-center">
