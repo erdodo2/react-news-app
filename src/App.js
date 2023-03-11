@@ -1,24 +1,33 @@
-import logo from './logo.svg';
+import axios from "axios";
+import { useEffect,useState } from "react";
 import './App.css';
 
+import Header from "./components/Header";
+import Aside from "./components/Aside";
+import Main from "./components/Main";
+
 function App() {
+    const API="ed3d0e40f2dc4f079476843e90c4e5ed"
+    const url = `https://newsapi.org/v2/top-headlines?country=tr&apiKey=${API}  `
+    const getNews = async () => {
+        axios.get(url).then((response) => {
+            console.log(response.data)
+        })
+    }
+
+    useEffect(() => {
+        getNews()
+    }, [])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className=" flex justify-center w-full">
+          <div className="w-full dark:bg-gray-600">
+                <Header/>
+                <div className="flex">
+                    <Aside/>
+                    <Main/>
+                </div>
+          </div>
+      </div>
   );
 }
 
