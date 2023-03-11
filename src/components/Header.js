@@ -7,7 +7,7 @@ export default function Header() {
     const [search, setSearch] = useState("");
     return (
         <header className=" w-full rounded-lg p-3">
-            <div className="flex justify-between p-3 bg-slate-100  rounded">
+            <div className="flex justify-between p-3 bg-slate-100 dark:bg-slate-700 rounded">
                 <div className="flex items-center">
                     <a href="https://erdoganyesil.com.tr" ><img src={erdogan} className="h-10" alt="logo"  /></a>
                     <img src={logo} className="h-10" alt="logo"  />
@@ -17,7 +17,7 @@ export default function Header() {
                        value={search}
                        onInput={e => setSearch(e.target.value)}
 
-                       className=" rounded border text-2xl p-2"/>
+                       className=" rounded border dark:bg-slate-600  text-2xl p-2"/>
 
             </div>
         </header>

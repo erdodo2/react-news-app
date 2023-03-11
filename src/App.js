@@ -6,25 +6,32 @@ import Header from "./components/Header";
 import Aside from "./components/Aside";
 import Main from "./components/Main";
 
+//import newsJson from './news.json'
+
 function App() {
-    const API="ed3d0e40f2dc4f079476843e90c4e5ed"
-    const url = `https://newsapi.org/v2/top-headlines?country=tr&apiKey=${API}  `
+    const [news, setNews] = useState([])
+    const apikey = 'pub_18728870c66ad4aa75ba094d83252f0405571';
+    const category = window.location.pathname.replace('/','');
+    const url = 'https://newsdata.io/api/1/news?apikey='+apikey+'&country=tr&language=tr &category='+category;
     const getNews = async () => {
         axios.get(url).then((response) => {
-            console.log(response.data)
+            setNews(response.data.results)
+            console.log(response.data.results)
         })
     }
 
     useEffect(() => {
         getNews()
+        //setNews(newsJson)
+
     }, [])
   return (
       <div className=" flex justify-center w-full">
-          <div className="w-full dark:bg-gray-600">
+          <div className="w-full dark:bg-gray-800 dark:text-white">
                 <Header/>
                 <div className="flex">
                     <Aside/>
-                    <Main/>
+                    <Main news={news} />
                 </div>
           </div>
       </div>
