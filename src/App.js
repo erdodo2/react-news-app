@@ -10,9 +10,11 @@ import Main from "./components/Main";
 
 function App() {
     const [news, setNews] = useState([])
-    const apikey = 'pub_18728870c66ad4aa75ba094d83252f0405571';
+    const apikey = 'm1K8NMV1VLIGw59cuo839Apd9kxP1uzFxgN6RlRi';
     const category = window.location.pathname.replace('/','');
-    const url = 'https://newsdata.io/api/1/news?apikey='+apikey+'&country=tr&language=tr &category='+category;
+    var url = 'https://api.currentsapi.services/v1/latest-news?' +
+        'language=us&' +
+        'apiKey=AHGYlXq4UNYNFOQpesDkUtofu2gPjXupgXJQrkLjdF2CtrdI';
     const getNews = async () => {
         axios.get(url).then((response) => {
             setNews(response.data.results)
