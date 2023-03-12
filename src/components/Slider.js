@@ -42,13 +42,13 @@ export default function Slider({news}) {
             {
                 news.map((item,index) => {
                     return(
-                        <div className="h-96 carousel-item" style={{ backgroundImage:`url('${item.media}')` }}>
-                            <div className="content">
-                                <img src={item.media} className="mr-2" />
-                                <div className="flex flex-col">
-                                    <h1 className="text-2xl ellipsis-2 ">{item.title}</h1>
-                                    <p className="ellipsis-4">
-                                        {item.excerpt}
+                        <div className="h-96 carousel-item " style={{ backgroundImage:`url('${item.urlToImage}')` }}>
+                            <div className="content flex-col sm:flex-row w-full items-center text-center px-4 md:px-10">
+                                <img src={item.urlToImage} className="mr-2" />
+                                <div className="flex flex-col w-96 items-center">
+                                    <h1 className="text-xl md:text-2xl ellipsis-2 ">{item.title}</h1>
+                                    <p className="ellipsis-4 text-sm md:text-lg">
+                                        {item.description}
                                     </p>
                                 </div>
                             </div>
